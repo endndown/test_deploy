@@ -3,10 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 # from os import path
 from flask_login import LoginManager
 from flask_mail import Mail
-
-
-db = SQLAlchemy()
-DB_NAME = "database.db"
+import os
 
 
 
@@ -14,7 +11,8 @@ def create_app():
     #creatt the app
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'petesudlor'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     
     
@@ -39,6 +37,12 @@ def create_app():
         return User.query.get(int(id))
     
     return app
+
+
+app = create_app()
+db = SQLAlchemy(app)
+
+
 
 def created_mail():
     app = Flask(__name__)
