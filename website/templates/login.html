@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style_login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>VothWarp</title>
+</head>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' or message == "Please log in to access this page." %}
+    <div class="alert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        {{ message }}
+    </div>
+    <script src="../static/javascript/resgister.js"></script>
+    {% else %}
+    <div class="alerts">
+        <span class="closebtns" onclick="closeAlerts()">&times;</span>
+        {{ message }}
+    </div>
+    <script src="../static/javascript/resgister.js"></script>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <form method="POST">
+        <div class="page_login">
+            <div class="text_time">
+                <img src="../static/img/Time_To_Warp_login.png" width="900px" height="200px">
+            </div>
+            <div class="world">
+                <img src="../static/img/object1_login.png" width="900px" height="450px">
+            </div>
+            <div class="box_login">
+                <h1>Login</h1>
+                <div class="username">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Password">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="/forgot_password"> Forgot password</a>
+                </div>
+                <button type="submit">Login</button>
+                <div class="login">
+                    <p>Don't have an account <a href="/register">Register</a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="cloudimation" id="cloudimation">
+        <img src="../static/img/cloud1.png" class="cloud1">
+        <img src="../static/img/cloud2.png" class="cloud2">
+        <img src="../static/img/cloud3.png" class="cloud3">
+        <img src="../static/img/cloud4.png" class="cloud4">
+        <img src="../static/img/cloud5.png" class="cloud5">
+        <img src="../static/img/cloud1.png" class="cloud6">
+        <img src="../static/img/cloud2.png" class="cloud7">
+        <img src="../static/img/cloud3.png" class="cloud8">
+        <img src="../static/img/cloud4.png" class="cloud9">
+        <img src="../static/img/cloud5.png" class="cloud10">
+        <!-- <img src="../static/img/cloud6.png" class="cloud6"> -->
+        <!-- <img src="../static/img/clound7.png" class="cloud7"> -->
+    </div>
+    <script src="../static/javascript/login.js"></script>
+</body>
+</html>

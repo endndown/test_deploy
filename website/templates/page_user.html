@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="../static/css/style_page_user.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua">
+</head>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+        {% if category %}
+            <div class="alerts">
+                <span class="closebtns" onclick="closeAlerts()">&times;</span>
+                {{ message }}
+            </div>
+            <script src="../static/javascript/resgister.js"></script>
+        {% else %}
+            <div class="alert">
+                <span class="closebtn" onclick="closeAlert()">&times;</span>
+                {{ message }}
+            </div>
+            <script src="../static/javascript/resgister.js"></script>
+        {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% if all_profile %}
+<body style="display: flex;
+min-height: 10vh;
+background: url('/download_pictureb/{{ all_profile[1] }}');
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+justify-content: center;
+align-items: center;">
+    <div class="interface">
+        <div class="profile">
+            <div class="picture">
+                <a href="/Profile/{{ user }}"><span style="background: url('/download_picturep/{{ all_profile[0] }}');
+                background-position: center;
+                background-size: cover;" class="photo" title="Upload your Avatar!">
+                </span></a>
+            </div>
+        </div>
+{% else %}
+<body>
+    <div class="interface">
+        <div class="profile">
+            <div class="picture">
+                <a href="/Profile/{{ user }}"><span class="photo" title="Upload your Avatar!">
+                </span></a>
+            </div>
+        </div>
+{% endif %}
+    <div class="navbar">
+        <p>VoteWarp</p>
+        <div class="nav_link">
+            <a href="/logout">logout</a>
+        </div>
+    </div>
+        <div class="name_user">
+            <p>{{ user }}</p>
+        </div>
+        <div class="searchbar">
+            <div class="searchbox">
+                <span></span>
+                <form action="/find/{{ user }}" method="POST" class="search_input">
+                    <input type="text" placeholder="search your room" src="" class="search" name="search">
+                    <input type="submit" class="enter_search" value="enter">
+                </form>
+            </div>
+        </div>
+        <div class="box">
+            <div class="wrapper" id="wrapper">
+                {% for i in all_room %}
+                {% if i[4] == "0" %}
+                 <div class="room_box yellow" onclick="window.open('/room/{{ i[5] }}{{ user }}')">
+                    <p>room</p>
+                    <div class="line">
+                        <p>{{ i[0] }}</p>
+                    </div>
+                        <div class="status yellow">
+                            <p>status:</p>
+                            <p>voting</p>
+                            <img src="../static/img/voteting.png" alt="">
+                        </div>
+                {% else %}
+                 <div class="room_box green" onclick="window.open('../templates/room.html')">
+                    <p>room</p>
+                    <div class="line">
+                        <p>{{ i[0] }}</p>
+                    </div>
+                        <div class="status green">
+                            <p>status:</p>
+                            <p>complete</p>
+                            <img src="../static/img/check-mark (1).png" alt="">
+                        </div>
+                {% endif %}
+                    <div class="date">
+                        <p>date:</p>
+                        <div class="line2"><p>{{ i [2] }}</p></div>
+                    </div>
+                    <img class="picpic" src="/download_picture/{{ i[3] }}" alt="picture">
+                 </div>
+                {% endfor %}
+                <!-- function addroom() จะ add room_box ตรงนี้ -->
+
+                <!-- complete room -->
+
+                <!-- <div class="room_box green">
+                    <p>room</p>
+                    <div class="line">
+                        <p>แมนซ่า</p>
+                    </div>
+                    <div class="status green">
+                        <p>status:</p>
+                        <p>complete</p>
+                        <img src="../static/img/check-mark (1).png" alt="">
+                    </div>
+                    <div class="place">
+                        <p>place:</p>
+                        <div class="line2"><p>ร้านเหล้าแถวนี้</p></div>
+                    </div>
+                    <div class="date">
+                        <p>date:</p>
+                        <div class="line2"><p>07/10/2023</p></div>
+                    </div>
+                    <div class="timey">
+                        <p>time:</p>
+                        <div class="line2"><p>22.00 น.</p></div>
+                    </div>
+                    <div class="picpic"></div>
+                </div> -->
+
+                <!-- voting room -->
+
+                <!-- <div class="room_box yellow">
+                    <p>room</p>
+                    <div class="line">
+                        <p>แมนซ่า</p>
+                    </div>
+                    <div class="status yellow">
+                        <p>status:</p>
+                        <p>voting</p>
+                        <img src="../static/img/voteting.png" alt="">
+                    </div>
+                    <div class="place">
+                        <p>place:</p>
+                        <div class="line2"><p>ร้านเหล้าแถวนี้</p></div>
+                    </div>
+                    <div class="date">
+                        <p>date:</p>
+                        <div class="line2"><p>07/10/2023</p></div>
+                    </div>
+                    <div class="timey">
+                        <p>time:</p>
+                        <div class="line2"><p>22.00 น.</p></div>
+                    </div>
+                    <div class="picpic"></div>
+                </div> -->
+                <div class="createroom" id="createroom">
+                    <button onclick="popup_createroom()"><img src="../static/img/createroom_button.png" alt=""></button>
+                    <div>Create Room</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="popup_box">
+                <div class="popup_content">
+                    <img src="../static/img/close_button.png" alt="" class="close" onclick="close_popup()">
+                    <div class="page_creategroup">
+                        <h1>Create Your Room</h1>
+                    </div><br>
+                    <div class="headword">
+                        <h3>Room Name</h3>
+                        <input  type="text" 
+                                id="groupname" 
+                                name="groupname"
+                                placeholder="Please enter your room name"><br><br>
+                        <h3>Room Password</h3>
+                        <input  type="password" 
+                                id="grouppassword" 
+                                name="grouppassword"
+                                placeholder="Please enter your room password"><br><br>
+                        <h3>Day</h3>
+                        <input type="text"
+                                id="selectedDate"
+                                name="selectedDate"
+                                placeholder="-- Select Day --" 
+                                onpointerover=" (this.type='date') "
+                                class="helpme">
+                        <h3 class="yohoo">Room Picture</h3>
+                        <img src="../static/img/anonymous2.png" alt="profile" width="100px" height="100px" id="picture_room"><br>
+                        <label for="input-file">Select Picture</label><br>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" name="file" >
+                    </div><br>
+                    <input type="submit" name="submit" class="create_submit">
+                </div>
+            </div>
+        </form>
+    <script src="../static/javascript/page_user.js"></script>
+    <script src="https://kit.fontawesome.com/152f96ad61.js" crossorigin="anonymous"></script>
+</body>
+</html>

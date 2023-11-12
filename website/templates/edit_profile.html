@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/css/style_edit_profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert">
+          <span class="closebtn" onclick="closeAlert()">&times;</span>
+          {{ message }}
+      </div>
+      <script src="../static/javascript/resgister.js"></script>
+      {% endfor %}
+    {% endif %}
+{% endwith %}
+</head>
+<body>
+    <div class="all">
+        <form method="POST" enctype="multipart/form-data">
+            <div>
+                <h1>
+                    Edit Your Profile
+                </h1>
+            </div>
+            <div class="text_name">
+                <input type="text">
+                <label>
+                    Name
+                </label>
+                <i class='bx bx-pencil'></i>
+            </div>
+            {% if all_profile %}
+            <div class="photo_profile">
+                <img src="/download_picturep/{{ all_profile[0] }}" alt="profile" width="200px" height="200px" id="photo_room">
+                <label for="input-file">Change Profile</label><br>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" name="picturep">
+            </div>
+            <div class="photo_background">
+                <img src="/download_pictureb/{{ all_profile[1] }}" alt="background" width="200px" height="200px" id="background_smth">
+                <label for="input-background">Change Background</label><br>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-background" name="pictureb">
+            </div>
+            {% else %}
+            <div class="photo_profile">
+                <img src="../static/img/anonymous2.png" alt="profile" width="200px" height="200px" id="photo_room">
+                <label for="input-file">Change Profile</label><br>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" name="picturep">
+            </div>
+            <div class="photo_background">
+                <img src="../static/img/fuji.jpg" alt="background" width="200px" height="200px" id="background_smth">
+                <label for="input-background">Change Background</label><br>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-background" name="pictureb">
+            </div>
+            {% endif %}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

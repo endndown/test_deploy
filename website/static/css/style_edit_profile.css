@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    min-height: 10vh;
+    background: #F5D899;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* box name */
+.text_name input{
+    height: 100%;
+    width: 50%;
+    border: none;
+    font-size: 30px;
+    border-bottom: 2px solid black;
+    background-color: #F5D899;
+    font-family: Jua;
+}
+
+/* ปรับขนาดกล่อง */
+.all .text_name input{
+    height: 40px;
+    width: 40%;
+    position: absolute;
+    top: 33%;
+    left: 10%;
+}
+
+/* picture pencil */
+.text_name i{
+    position: absolute;
+    top: 33.5%;
+    left: 48%;
+    font-size: 30px;
+}
+
+/* text Name */
+.text_name label{
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: black;
+    font-size: 50px;
+    font-family: Jua;
+    color: #fff;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+/* text edit profile */
+.all h1{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 90px;
+    font-family: Jua;
+    color: #fff;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+/* img profile */
+.photo_profile img{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    border-radius: 50%;
+}
+
+/* img background */
+.photo_background img{
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    border-radius: 50%;
+}
+
+/* button change profile */
+.all .photo_profile label{
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    top: 49%;
+    margin-left: 30%;
+    width: 20%;
+    height: 6%;
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 9px;
+    padding-left: 5.5%;
+}
+
+/* hide input change file */
+.all .photo_profile input{
+    display: none;
+}
+
+/* button change background */
+.all .photo_background label{
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    top: 72%;
+    left: 30%;
+    width: 20%;
+    height: 6%;
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 9px;
+    padding-left: 4.3%;
+}
+
+/* hide input change file */
+.all .photo_background input{
+    display: none;
+}
+
+/* button save */
+.all button{
+    position: absolute;
+    top: 85%;
+    right: 10%;
+    width: 13%;
+    height: 6%;
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 1440px){
+    .all .photo_profile label{
+        top: 48%;
+        left: 2%;
+        text-align: center;
+        padding-left: 0.5%;
+        width: 30%;
+        transition: .2s;
+    }
+    .all .photo_background label{
+        top: 72%;
+        left: 32%;
+        width: 30%;
+        text-align: center;
+        padding-left: 0.5%;
+        transition: .2s;
+    }
+    .all button{
+        top: 85%;
+        right: 5%;
+        width: 15%;
+        text-align: center;
+        padding-left: 0.5%;
+        transition: .2s;
+    }
+}
+
+@media (max-width: 1024px){
+    .all .photo_profile label{
+        top: 46.5%;
+        left: 10%;
+        font-size: 20px;
+        text-align: center;
+        padding-left: 0.5%;
+        width: 30%;
+        transition: .2s;
+    }
+    .all .photo_background label{
+        top: 71%;
+        left: 40%;
+        width: 30%;
+        font-size: 20px;
+        text-align: center;
+        padding-left: 0.5%;
+        transition: .2s;
+    }
+    .all h1{
+        font-size: 75px;
+        transition: .2s;
+    }
+    .text_name label{
+        font-size: 45px;
+        transition: .2s;
+    }
+    .photo_profile img{
+        width: 150px;
+        height: 150px;
+        transition: .2s;
+    }
+    .photo_background img{
+        width: 160px;
+        height: 160px;
+        transition: .2s;
+    }
+    .all button{
+        top: 85%;
+        right: 5%;
+        width: 15%;
+        font-size: 20px;
+        text-align: center;
+        padding-left: 0.5%;
+        transition: .2s;
+    }
+}
+
+@media (max-width: 768px){
+    .all h1{
+        font-size: 60px;
+        -webkit-text-stroke-width: 2px;
+        transition: .2s;
+    }
+    .text_name label{
+        font-size: 35px;
+        -webkit-text-stroke-width: 1.5px;
+        transition: .2s;
+    }
+    .text_name input{
+        font-size: 22px;
+        transition: .2s;
+    }
+}
+
+@media (max-width: 479px){
+    .all h1{
+        top: 5%;
+        font-size: 70px;
+        -webkit-text-stroke-width: 2px;
+        transition: .2s;
+    }
+    .all .text_name input{
+        height: 30px;
+        width: 70%;
+    }
+    .text_name label{
+        font-size: 35px;
+        top: 28%;
+        -webkit-text-stroke-width: 1.5px;
+        transition: .2s;
+    }
+    .text_name i{
+        top: 33%;
+        left: 74%;
+        font-size: 30px;
+        transition: .2s;
+    }
+    .photo_profile img{
+        width: 110px;
+        height: 110px;
+        transition: .2s;
+    }
+    .photo_background img{
+        width: 110px;
+        height: 110px;
+        top: 60%;
+        transition: .2s;
+    }
+    .all .photo_profile label{
+        top: 43.9%;
+        left: 15%;
+        font-size: 13px;
+        text-align: center;
+        padding-top: 1.5%;
+        padding-left: 0.5%;
+        width: 40%;
+        height: 4.5%;
+        transition: .2s;
+    }
+    .all .photo_background label{
+        top: 63.8%;
+        left: 45%;
+        font-size: 13px;
+        text-align: center;
+        padding-top: 1.5%;
+        padding-left: 0.5%;
+        width: 40%;
+        height: 4.5%;
+        transition: .2s;
+    }
+    .all button{
+        top: 85%;
+        right: 5%;
+        font-size: 13px;
+        text-align: center;
+        padding-top: 0.2%;
+        padding-left: 0.5%;
+        width: 25%;
+        height: 4.5%;
+        transition: .2s;
+    }
+}
+
+/* ขึ้นแจ้งเตือน */
+.alert {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    z-index: 1;
+    padding: 1%;
+    background-color: #f44336; /* สีแดง */
+    color: white;
+    margin: 2%;
+    margin-top: 1.5%;
+    width: 96%;
+    position: fixed;
+
+}
+
+.closebtn {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5%;
+    margin: 0.5%;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    background-color: hsl(0, 65%, 51%);
+}

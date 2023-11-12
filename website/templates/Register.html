@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register</title>
+    
+    <link rel="stylesheet" href="../static/css/style_register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="alert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        {{ message }}
+    </div>
+    <script src="../static/javascript/resgister.js"></script>
+    {% else %}
+    <div class="alert">
+        <span class="closebtn" onclick="closeAlert()">&times;</span>
+        {{ message }}
+    </div>
+    <script src="../static/javascript/resgister.js"></script>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+    <div class="navbar">
+        <p>VoteWarp</p>
+        <div class="nav_link">
+            <a href="/login">login</a>
+        </div>
+    </div>
+    <form method="POST">
+        <div class="page_register">
+            <div class="picture">
+                <div class="letgo">
+                    <img src="../static/img/text_register.png" alt="letgo" width="521" height="190">
+                </div>
+                <div class="airplane">
+                    <img src="../static/img/airplane_register.png" alt="airplane" width="523" height="320">
+                </div>
+            </div>
+            <div class="register">
+                <div>
+                    <h1>Register</h1>
+                    <div class="box">
+                        <input
+                        type="text"
+                        id="firstname"
+                        placeholder="Username"
+                        name="firstname">
+                    </div>
+                    <div class="box">
+                        <input
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        name="email">
+                    </div>
+                    <div class="box">
+                        <input
+                        type="password"
+                        id="password1"
+                        placeholder="Password"
+                        name="password1" >
+                    </div>
+                    <div class="box">
+                        <input
+                        type="password"
+                        id="passoword2"
+                        placeholder="Comfirm Password"
+                        name="password2" >
+                    </div>
+                    <br/>
+                    <button type="submit" class="Createaccount">Create account</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="cloudimation" id="cloudimation">
+        <img src="../static/img/cloud1.png" class="cloud1">
+        <img src="../static/img/cloud2.png" class="cloud2">
+        <img src="../static/img/cloud3.png" class="cloud3">
+        <img src="../static/img/cloud4.png" class="cloud4">
+        <img src="../static/img/cloud5.png" class="cloud5">
+        <img src="../static/img/cloud1.png" class="cloud6">
+        <img src="../static/img/cloud2.png" class="cloud7">
+        <img src="../static/img/cloud3.png" class="cloud8">
+        <img src="../static/img/cloud4.png" class="cloud9">
+        <img src="../static/img/cloud5.png" class="cloud10">
+        <!-- <img src="../static/img/cloud6.png" class="cloud6"> -->
+        <!-- <img src="../static/img/clound7.png" class="cloud7"> -->
+    </div>
+    <script src="../static/javascript/resgister.js"></script>
+</body>
+</html>
