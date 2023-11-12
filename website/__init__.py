@@ -6,6 +6,8 @@ from flask_mail import Mail
 import os
 
 
+db = SQLAlchemy()
+
 
 def create_app():
     #creatt the app
@@ -13,7 +15,6 @@ def create_app():
     app.config['SECRET_KEY'] = 'petesudlor'
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db = SQLAlchemy(app)
     db.init_app(app)
     
     
@@ -39,9 +40,6 @@ def create_app():
     
     return app
 
-
-app = create_app()
-db = SQLAlchemy(app)
 
 
 
