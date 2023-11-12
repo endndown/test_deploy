@@ -6,7 +6,6 @@ from flask_mail import Mail
 
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
 
 
 
@@ -14,7 +13,7 @@ def create_app():
     #creatt the app
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'petesudlor'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://test_database_3r2n_user:t1jkqChwX4plE58pD46OJCCi5EGolcrG@dpg-cl8at176e7vc73a46490-a/test_database_3r2n'
     db.init_app(app)
     
     
